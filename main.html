@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleen Gatus</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-y: auto;
+            background-image: url('bg.png');
+            background-size: cover;  /* Ensures the image covers the entire background */
+            background-position: center;  /* Centers the image */
+            background-attachment: fixed;  /* Makes the background fixed while scrolling */
+        }
+        
+        .image-container {
+            display: inline-block; /* Allows the image to be contained */
+            position: relative; /* To position the shadow */
+            border-radius: 10px; /* Optional: for rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        }
+
+        img {
+            display: block;
+            margin-left: auto; /* Centers the image horizontally */
+            margin-right: auto; /* Centers the image horizontally */
+            max-width: 70%; /* Limits the width to 70% of its container */
+            height: auto;
+            border-radius: 10px; /* Ensure rounded corners on the image */
+            background-position: center;
+        }
+
+
+        h1 {
+            color: #861657;
+            font-weight: bold;
+            font-size: 2.5rem;
+            font-family: 'Poppins';
+        }
+
+        h2 {
+            margin: 10px 0 20px;
+            color: #555;
+            font-size: 1.5rem;
+            font-family: 'Montserrat';
+        }
+
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: normal;
+            line-height: 1.5;
+            margin: 15px 0;
+            max-width: 900px; /* Limit width for better readability */
+            text-align: justify; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #041e59;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .box:hover {
+            background-color: #000000;
+            transform: translateY(-5px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            background-color: #041e59;
+            width: 100%;
+            text-align: center;
+            padding: 10px 100;
+            display: grid;
+            margin: 0; /* Remove default margin */
+            
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #861657;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .hide-header {
+            display: none;
+        }
+
+        .source-button {
+            display: inline-block;
+            background-color: black; /* Green background */
+            color: white; /* White text */
+            padding: 5px 10px; /* Padding for button size */
+            text-align: center;
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px; /* Text size */
+            margin-top: 20px; /* Space above the button */
+            margin-bottom: 20px;
+        }
+
+        .source-button:hover {
+            background-color: #861657; 
+        }
+
+    </style>
+    <script>
+        function showContent(page) {
+            // Hide the header
+            document.querySelector('header').classList.add('hide-header');
+            
+            // Hide all content sections
+            document.getElementById('main-content').classList.add('hidden');
+            document.getElementById('opinion-editorial').classList.add('hidden');
+            document.getElementById('profile').classList.add('hidden');
+            document.getElementById('background').classList.add('hidden');
+
+            // Show the selected page
+            document.getElementById(page).classList.remove('hidden');
+            
+            // Show the footer when any content page is displayed
+            document.getElementById('footer').classList.remove('hidden');
+        }
+
+        function showHome() {
+            // Show the header again when returning to the main content
+            document.querySelector('header').classList.remove('hide-header');
+
+            // Show the main content
+            document.getElementById('main-content').classList.remove('hidden');
+            
+            // Hide all other sections
+            document.getElementById('opinion-editorial').classList.add('hidden');
+            document.getElementById('profile').classList.add('hidden');
+            document.getElementById('background').classList.add('hidden');
+
+            // Hide the footer when returning to the home page
+            document.getElementById('footer').classList.add('hidden');
+        }
+
+        function toggleSources() {
+            var sourcesDiv = document.getElementById('sources');
+            if (sourcesDiv.style.display === 'none' || sourcesDiv.style.display === '') {
+                sourcesDiv.style.display = 'block';
+            } else {
+                sourcesDiv.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Social Science 1 : Final Output</h1>
+        <h2>By Coleen May S. Gatus</h2>
+    </header>
+    <main>
+        <div id="main-content">
+            <div class="container">
+                <a href="#" class="box" onclick="showContent('opinion-editorial')">Opinion Editorial</a>
+                <a href="#" class="box" onclick="showContent('profile')">Profile as a Public Intellectual</a>
+                <a href="#" class="box" onclick="showContent('background')">Background and Rationale</a>
+            </div>
+        </div>
+
+        <div id="opinion-editorial" class="hidden">
+        
+            <h1>Dissent ≠ Terrorism: Education and Informed Voting Against Red-Tagging</h1>
+            <h3>by Coleen May S. Gatus</h3>
+            <p>Even after decades, the simple act of criticizing the government to foster public discourse is often labeled as 'terrorism’.</p>
+            <p>Red-tagging – the act of labeling people or organizations as affiliates of communist groups and terrorists without substantial evidence – has intensified over the years and has been widely used to justify threats and the questionable deaths of the innocent since the Marcos Sr. regime. This practice dates back to 1969, when red-tagging emerged as a government-backed campaign targeting communist groups, particularly the New People’s Army. Under Marcos Sr.’s rule, any individual or group in opposition was tagged as an “enemy of the State” which led to torture, arrests, and forcible disappearances. It often began as disinformation spread through posters and media channels by the government until such stories led to physical surveillance, attacks, detention, and death by the police force or unidentified individuals. Unfortunately, despite the ousting of Marcos brought by the People Power Revolution in 1986, the Duterte Administration brought red-tagging back on its feet alongside his “war on drugs”. With this amplified, activists, journalists, and human rights defenders became focal targets, classified as communist sympathizers followed by widespread harassment, attacks, unlawful arrests, and even deaths.</p> 
+            <p>In 2018, Duterte’s main red-tagging vehicle was established: the National Task Force to End Local Communist Armed Conflict (NTF-ELCAC) which used press releases, conferences, and social media to continue this harmful practice. The Anti-Terrorism Act of 2020 was also born, a successor to the Human Security Act of 2007, further exacerbated the issue. While seemingly aimed at addressing terrorism, it is only the tip of the iceberg and the law revealed itself as a powerful tool to silence critics. With its vague and deliberately flawed definition of terrorism, the law permits the military and police to hold detainees for up to 24 days without a warrant or charge and grants vast surveillance authority. Furthermore, the Anti-Terrorism Council can label organizations and individuals as "terrorists" without due process, placing basic freedoms at risk.</p>
+            <p>While red-tagging and the Anti-Terror Act present a multifaceted threat, I would like to argue for the bigger picture: the role of education, democracy, and voting in combating red-tagging and the Anti-Terror Act. </p>
+            <p>The rapid advancement of technology has fueled the rise of disinformation. Without proper education on navigating the digital landscape, many individuals are vulnerable to accepting information at face value and are unable to analyze or question its validity critically. A survey conducted by the Social Weather Stations (SWS) in 2017 and 2021 revealed that 70% consider fake news as a serious problem and 51% found it difficult to identify fake news across media platforms. Until today, the need for more accessible education on technology and advocating for the inclusion of human rights, history, and democracy in today’s curriculum is highlighted and needed more than ever. </p>
+            <p>As we delve deeper into the roots of the problem, we must now have a sense that the issue also lies in how we utilize the freedom granted by our democratic system. The people seated in the government have enabled such oppressive policies – but we, have collectively chosen these people. This points to a shared responsibility. However, this is not entirely the case – the blame cannot fall entirely on the electorate, as there is an evident abuse and unmindful use of freedom. A multitude of people, the less fortunate in particular, often lack the means to educate themselves, thus, easily becoming the puppets of the government and unknowingly enablers of these brutal policies and practices. Considering our broken system, we cannot pin it all on them but instead work towards holding ourselves accountable and helping the people around us realize the true background of those in power. </p>
+            <p>In the fight to abolish the Anti-Terror Law and eliminate red-tagging, it ultimately boils down to exercising our right to vote wisely and fostering education that empowers us to choose leaders who uphold justice and democracy. While this may seem like a daunting, lifelong battle, it is an investment in the future and a legacy of hope for the coming generations.</p>
+            <a href="javascript:void(0)" class="source-button" onclick="toggleSources()">View References</a>
+            <div id="sources" class="hidden">
+                <h2>References</h2>
+                <p>70% of Pinoys say fake news a serious problem – SWS | Inquirer News. (2022, February 28). INQUIRER.net. <a href="https://newsinfo.inquirer.net/1560828/sws-70-of-pinoys-say-fake-news-a-serious-problem" target="_blank">https://newsinfo.inquirer.net/1560828/sws-70-of-pinoys-say-fake-news-a-serious-problem</a></p>
+                <p>Anti-Terror Act remains dangerous and fundamentally flawed - Amnesty Philippines. (2021, December 9). Amnesty Philippines.   <a href="https://www.amnesty.org.ph/2021/12/anti-terror-act-remains-dangerous-and-fundamentally-flawed/
+                    " target="_blank">https://www.amnesty.org.ph/2021/12/anti-terror-act-remains-dangerous-and-fundamentally-flawed/</a></p>   
+                <p>Columbia Global Freedom of Expression. (2024, August 22). Red-Tagging in the Philippines: The modern McCarthyism threatening freedom of expression - Global freedom of expression. Global Freedom of Expression.   <a href="https://globalfreedomofexpression.columbia.edu/publications/red-tagging-in-the-philippines-the-modern-mccarthyism-threatening-freedom-of-expression/
+                    " target="_blank">https://globalfreedomofexpression.columbia.edu/publications/red-tagging-in-the-philippines-the-modern-mccarthyism-threatening-freedom-of-expression/</a></p>        
+                <p>GMA News. (2022, February 16). SWS: 51% of adult Filipinos find difficulty in discerning fake news. GMA News Online.    <a href="https://www.gmanetwork.com/news/topstories/nation/822135/sws-51-of-adult-filipinos-find-difficulty-in-discerning-fake-news/story/
+                    " target="_blank">https://www.gmanetwork.com/news/topstories/nation/822135/sws-51-of-adult-filipinos-find-difficulty-in-discerning-fake-news/story/</a></p>  
+                <p>Human Rights Foundation. (2024, November 18). Red-Tagging in the Philippines: A license to Kill - Human Rights Foundation.   <a href="https://hrf.org/latest/red-tagging-in-the-philippines-a-license-to-kill/
+                    " target="_blank">https://hrf.org/latest/red-tagging-in-the-philippines-a-license-to-kill/</a></p>
+                <p>Juan Felix, Ferdinand Sanchez II, & Nicole Curato. (2023). Creatives as frontliners in the Philippines’ fight against disinformation. eastasiaforum.org.  <a href="https://eastasiaforum.org/2023/06/16/creatives-as-frontliners-in-the-philippines-fight-against-disinformation/
+                " target="_blank">https://eastasiaforum.org/2023/06/16/creatives-as-frontliners-in-the-philippines-fight-against-disinformation/</a></p>
+                <p>Philippines: End deadly ‘Red-Tagging’ of activists. (2022, January 20). Human Rights Watch.   <a href="https://www.hrw.org/news/2022/01/17/philippines-end-deadly-red-tagging-activists
+                    " target="_blank">https://www.hrw.org/news/2022/01/17/philippines-end-deadly-red-tagging-activists</a></p>   
+                </div>
+        </div>
+        
+
+        <div id="profile" class="hidden">
+            <h1>Curriculum Vitae</h1>
+            <img src="cv final.png">
+            <br>
+        </div>
+
+        <div id="background" class="hidden">
+            <h1>Background and Rationale</h1>
+            <p>Growing up, I was always grateful for the democratic system in our country. The freedom to choose our leaders seemed liberating, and it felt as though we could envision a better future, empowered by our chosen candidates’ promises for the Philippines. However, as time went on, I began to realize the darker side of this system—the potential dangers when people are misled.  In my opinion editorial, I highlighted how the less fortunate are often the most vulnerable targets of misinformation and disinformation. Without access to proper information or education on becoming informed voters, they are easily swayed by candidates who offer empty promises or material gifts. Even more concerning, some choose to remain blind to the facts, ignoring the truth until it’s too late. This realization has made me question how people exercise their freedom, and it has led me to understand the dual nature of democracy: it can either uplift or harm the nation, depending on how it is wielded.</p>
+            <p>Among the many challenges facing our country today, one issue that particularly captured my attention is red-tagging. As part of the UP community, we have often been labeled as “terrorists” and falsely associated with communist groups, despite our intentions to merely practice our freedom of expression and advocate for better governance. It’s as if wanting the best for the country automatically makes us enemies of the State. This deeply impacted my decision to focus on red-tagging as the central issue for my creative output—my opinion editorial—and has shaped my vision of myself as a public intellectual.</p>
+            <p>Throughout this course, I applied several key concepts that helped create my final output. The first is the "essence of humanness," which became evident as I researched various sources for my editorial. I realized how the exercise of freedom, particularly in voting, is shaped by external forces. These forces, often in the form of manipulation and misinformation, exert immense power to influence the masses. Another concept I found relevant is “Sociological Imagination,” which taught me to link personal experiences to the broader social context. This helped me understand how activists and human rights defenders view social issues not as isolated problems, but as all linked to the government’s ill intentions. This inspired me to argue in my editorial that red-tagging is just one symptom of a much larger issue, requiring immediate action. Lastly, the concept of "frame alignment" allowed me to reflect on my envisioned role as a public intellectual. As a Computer Science student, I’ve come to see how I can leverage my technical knowledge to create platforms for change. I hope to build digital tools that can engage and educate people, raising awareness about critical issues like red-tagging and inspiring others to join in advocating for truth, justice, and the preservation of our rights.</p>
+        </div>
+
+        
+    </main>
+    <footer id="footer" class="hidden">
+        <p><a href="#" onclick="showHome()">Back to Home</a></p>
+    </footer>
+</body>
+
+</html>
